@@ -1,0 +1,2 @@
+# capacitorviernes
+proyecto con capacitor
