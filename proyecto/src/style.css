@@ -1,0 +1,117 @@
+:root {
+  --bg: hsl(240 10% 6%);
+  --panel: hsl(240 8% 12%);
+  --key: hsl(240 5% 18%);
+  --key-op: hsl(260 85% 60%);
+  --key-op-pressed: hsl(260 85% 55%);
+  --key-eq: hsl(140 70% 45%);
+  --key-eq-pressed: hsl(140 70% 40%);
+  --text: hsl(0 0% 98%);
+  --muted: hsl(0 0% 70%);
+  --shadow: 0 10px 25px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.03);
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+html, body, .wrap { height: 100%; }
+body {
+  margin: 0; background: radial-gradient(1200px 800px at 70% -10%, hsl(260 80% 16%/.35), transparent) , var(--bg);
+  color: var(--text); font: 500 16px/1.2 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+}
+
+.wrap {
+  display: grid; place-items: center; padding: 24px;
+}
+
+.calculator {
+  width: min(380px, 92vw);
+  background: var(--panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.display {
+  width: 100%;
+  text-align: right;
+  padding: 8px 6px;
+  user-select: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.display.history {
+  min-height: 24px;
+  color: var(--muted);
+  letter-spacing: .3px;
+}
+
+.display.main {
+  font-size: clamp(32px, 7vw, 46px);
+  padding-top: 6px;
+  padding-bottom: 10px;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 8px;
+  position: relative;
+}
+
+.keys > button {
+  appearance: none;
+  border: none;
+  border-radius: calc(var(--radius) - 6px);
+  padding: 16px 10px;
+  font-size: 18px;
+  line-height: 1;
+  background: var(--key);
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform .03s ease, background .15s ease, filter .15s ease;
+}
+
+.keys > button:focus-visible {
+  outline: 2px solid hsl(260 90% 67%);
+  outline-offset: 2px;
+}
+
+.keys > button:active {
+  transform: translateY(1px);
+  filter: brightness(1.05);
+}
+
+.keys > button[data-op],
+.keys > button[aria-label^="Dividir"],
+.keys > button[aria-label^="Multiplicar"],
+.keys > button[aria-label^="Restar"],
+.keys > button[aria-label^="Sumar"] {
+  background: hsl(260 60% 28%);
+}
+
+.keys > button[data-equals] {
+  background: var(--key-eq);
+  color: black;
+}
+
+.keys > button[data-equals]:active { background: var(--key-eq-pressed); }
+
+.keys > button[data-op]:active { background: var(--key-op-pressed); }
+
+.span-2 { grid-column: span 2; }
+
+.del {
+  position: absolute;
+  right: 0;
+  top: -44px;
+  padding: 6px 10px;
+  font-size: 14px;
+  background: hsl(0 0% 25%);
+}
+@media (max-width: 360px) {
+  .del { top: -40px; }
+}

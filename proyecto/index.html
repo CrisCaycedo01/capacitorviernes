@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Calculadora</title>
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="icon" href="data:,">
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="calculator" role="application" aria-label="Calculadora">
+        <output id="history" class="display history" aria-live="polite"></output>
+        <output id="display" class="display main" aria-live="polite" aria-atomic="true">0</output>
+
+        <div class="keys" role="group" aria-label="Teclado de la calculadora">
+          <button data-action="clear" aria-label="Borrar todo (C)" aria-keyshortcuts="Escape">C</button>
+          <button data-action="sign" aria-label="Cambiar signo (±)">±</button>
+          <button data-action="percent" aria-label="Porcentaje (%)" aria-keyshortcuts="%">%</button>
+          <button data-op="divide" aria-label="Dividir (/)">÷</button>
+
+          <button data-digit="7" aria-keyshortcuts="7">7</button>
+          <button data-digit="8" aria-keyshortcuts="8">8</button>
+          <button data-digit="9" aria-keyshortcuts="9">9</button>
+          <button data-op="multiply" aria-label="Multiplicar (*)">×</button>
+
+          <button data-digit="4" aria-keyshortcuts="4">4</button>
+          <button data-digit="5" aria-keyshortcuts="5">5</button>
+          <button data-digit="6" aria-keyshortcuts="6">6</button>
+          <button data-op="subtract" aria-label="Restar (-)">−</button>
+
+          <button data-digit="1" aria-keyshortcuts="1">1</button>
+          <button data-digit="2" aria-keyshortcuts="2">2</button>
+          <button data-digit="3" aria-keyshortcuts="3">3</button>
+          <button data-op="add" aria-label="Sumar (+)">+</button>
+
+          <button class="span-2" data-digit="0" aria-keyshortcuts="0">0</button>
+          <button data-dot="." aria-label="Decimal (.)" aria-keyshortcuts=".,,">.</button>
+          <button data-equals="=" aria-label="Igual (=)" aria-keyshortcuts="Enter =">=</button>
+
+          <button data-action="del" class="del" aria-label="Borrar un dígito (⌫)" aria-keyshortcuts="Backspace">⌫</button>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
